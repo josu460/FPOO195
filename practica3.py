@@ -60,20 +60,20 @@ print(nombre_mayusculas, "tiene un total de:",contar)
 # cada paquete a demanda. Cada payaso pesa 112 g y cada muñeca 75 g. Escribir un
 # programa que lea el número de payasos y muñecas vendidos en el último pedido y
 # calcule el peso total del paquete que será enviado.
-
+'''
 payaso = int(input("Cuantos payasos quieres: "))
-muneca = int(input("cuantas nuñecas quieres: "))
+muñeca = int(input("cuantas muñecas quieres: "))
 peso_payaso = 112
 peso_muñeca = 75
-total = (payaso*peso_payaso)+(muneca*peso_muñeca)
-print= (total)
+total = (payaso*peso_payaso)+(muñeca*peso_muñeca)
+print(total)
+'''
 # Crea un programa que pida al usuario que introduzca una frase en y muestre en
 # pantalla la frase invertida.
 
-'''
+
 frase = str(input("escribe una frese: "))
 
 frase_invertido= frase[::-1]
 
 print(frase_invertido)
-'''
