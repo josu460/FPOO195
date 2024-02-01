@@ -177,7 +177,9 @@ for i in range (transacciones):
 
 base =int(input("Escribe el tamaño de la base de tu arbol: "))
 
+altura = 1
 
-while base > 0:
-    print(" " * base + "*" * (base * 2 - 1))
-    base -= 1
+while altura <= base:
+    print(" " * (base - altura), end="")
+    print("* " * altura)
+    altura += 1
