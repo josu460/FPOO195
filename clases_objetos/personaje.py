@@ -15,17 +15,5 @@ class Personaje:
             #self para llamar los atributos de la clase
             
     def lanzarGranada(self):
-        print(self.nombre + "pego una granada")
+        print(self.nombre + " pego una granada")
         
-        
-    def recargarArma(self,munucion):
-        cargador = 25
-        cargador= cargador +munucion
-        print("arma recargada al "+ str(cargador) + "%")
-     
-# creamos el objeto de la clase personaje   
-spartan = Personaje()
-
-print(spartan.nombre)
-print(spartan.especie)
-print(spartan.altura)
