@@ -1,9 +1,12 @@
 class Personaje:
     # Atributos del perosnaje de halo 
     
-    especie = "Humano"
-    nombre = "John"
-    altura = 2.18
+    #declaramosm al connductor para crear los objetos
+    def __init__(self,esp,nom,alt):
+        self.especie = esp
+        self.nombre = nom
+        self.altura = alt
+  
     
     # Metodos del personaje de halo
     def correr(self,estado):
