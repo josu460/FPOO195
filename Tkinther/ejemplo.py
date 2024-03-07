@@ -24,6 +24,8 @@ ventana.geometry("600x400")
 seccion1 = Frame(ventana, bg="red")
 seccion1.pack(expand=True, fill="both")
 
+
+
 seccion2 = Frame(ventana, bg="gray", )
 seccion2.pack(expand=True, fill="both")
 #bg = al color del fondo 
