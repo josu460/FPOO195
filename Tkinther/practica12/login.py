@@ -3,16 +3,12 @@ from tkinter import ttk, messagebox
 from practica import Usuario
 
 
-def validar_usuario(input1, input2):
-    correo = input1.get()
-    contraseña = input2.get()
-    if correo == "" or contraseña == "":
-        messagebox.showinfo('Error', 'Por favor, introduce tu correo y contraseña')
+def validar_usuario():
+    status = Usuario.validar_usuario(caja1.get(), input2.get())
+    if (status):
+        print (messagebox.showinfo('Bienvenido', 'Bienvenido!!'))
     else:
-        if Usuario.validar_usuario(correo, contraseña):
-            messagebox.showinfo('Bienvenido', 'Bienvenido!!')
-        else:
-            messagebox.showinfo('Acceso denegado', 'Acceso denegado!!')
+         print (messagebox.showinfo('Acceso denegado', 'Acceso denegado!!'))
 
 ventana = Tk()
 ventana.title("login")

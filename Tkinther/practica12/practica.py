@@ -71,12 +71,14 @@ class Usuario:
                 usuario.setapellido_M(apellidoM)
                 usuario.setcorreo(correo)
                 usuario.setcontraseña(contraseña)
-    @classmethod
-    def validar_usuario(cls, correo, contraseña):
-        for usuario in cls.listausuarios:
-            if usuario.getcorreo() == correo and usuario.getcontraseña() == contraseña:
-                return True
-        return False
+    
+    def validar_usuario(self, correo, contraseña):
+        for usuario in self.listausuarios:
+            if usuario['correo'] == correo and usuario['Pasw'] == contraseña:
+                accesso=True
+            else:
+                accesso=False
+        return accesso
 
 opcion = ' '
 while opcion != 'X':
