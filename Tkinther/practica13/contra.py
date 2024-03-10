@@ -1,26 +1,24 @@
 from tkinter import *
 from tkinter import ttk, messagebox
 
-from main import PasswordGenerator
+from main import Generador_Contraseñas
 def click_generar():
-    length = int(caja1.get())
+    length = int(caja1.get()) if caja1.get()else 8
     
-    use_uppercase = caja2.get().lower() == 'si'
-    use_special_chars = caja3.get().lower() == 'si'
-    password_generator = PasswordGenerator(length, use_uppercase, use_special_chars)
-    password = password_generator.generate()
-    caja4.delete(0, END)
-    caja4.insert(0, password)
-    messagebox.showinfo("Contraseña generada", password)
+    caja_mayusculas = caja2.get().lower() == 'si'
+    caja_caracteres = caja3.get().lower() == 'si'
+    generador_contraseña = Generador_Contraseñas(length, caja_mayusculas, caja_caracteres)
+    contraseña = generador_contraseña.generar()
+    caja4.insert(0, contraseña)
+    messagebox.showinfo("Contraseña generada", contraseña)
 
 def click_verificar():
-    password = caja4.get()
-    if len(password) < 8:
-        messagebox.showinfo("Verificación de contraseña", "La contraseña es débil. Debe tener al menos 8 caracteres.")
-    elif not any(char.isdigit() for char in password):
-        messagebox.showinfo("Verificación de contraseña", "La contraseña es débil. Debe contener al menos un número.")
-    elif not any(char.isalpha() for char in password):
-        messagebox.showinfo("Verificación de contraseña", "La contraseña es débil. Debe contener al menos una letra.")
+    contraseña = caja4.get()
+    caja_mayusculas = caja2.get().lower() == 'si'
+    caja_caracteres = caja3.get().lower() == 'si'
+    
+    if len(contraseña) < 8 or not caja_mayusculas or not caja_caracteres:
+        messagebox.showinfo("Verificación de contraseña", "La contraseña es débil.")
     else:
         messagebox.showinfo("Verificación de contraseña", "La contraseña es fuerte.")
 

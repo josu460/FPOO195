@@ -1,16 +1,16 @@
 import string
 import random
-class PasswordGenerator:
-    def __init__(self, length=8, use_uppercase=True, use_special_chars=True):
-        self.length = length
-        self.use_uppercase = use_uppercase
-        self.use_special_chars = use_special_chars
+class Generador_Contraseñas:
+    def __init__(self, longitud=8, caja_mayusculas=True, caja_caracteres=True):
+        self.longitud = longitud
+        self.caja_mayusculas = caja_mayusculas
+        self.caja_caracteres = caja_caracteres
 
-    def generate(self):
-        chars = string.ascii_lowercase
-        if self.use_uppercase:
-            chars += string.ascii_uppercase
-        if self.use_special_chars:
-            chars += string.punctuation
-        return ''.join(random.choice(chars) for _ in range(self.length))
+    def generar(self):
+        caracteres = string.ascii_lowercase
+        if self.caja_mayusculas:
+            caracteres += string.ascii_uppercase
+        if self.caja_caracteres:
+            caracteres += string.punctuation
+        return ''.join(random.choice(caracteres) for _ in range(self.longitud))
 
