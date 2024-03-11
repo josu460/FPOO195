@@ -17,8 +17,7 @@ def click_agregar_lista():
     
 def click_marcar_como_completada():
     mi_serie.marcar_como_completada()
-    messagebox.showinfo('La serie se completó', f"{mi_serie.titulo} se ha marcado como completada")
-    
+    messagebox.showinfo('La serie se completó', f"{mi_serie.gettitulo()} se ha marcado como completada")
 
 def click_ver_lista():
     text_widget.delete('1.0', tk.END)
