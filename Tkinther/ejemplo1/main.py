@@ -1,24 +1,11 @@
 class Serie:
-    def __init__(self, titulo,genero,calificacion =None,status='sin reproducir', horasestimadas=10):
+    def __init__(self, titulo, genero, calificacion=None, status='sin reproducir', horasestimadas=10):
         self.titulo = titulo
         self.genero = genero
         self.calificacion = calificacion
         self.status = status
         self.horasestimadas = horasestimadas
-    
-    
-    # def gettitulo(self):
-    #     return self.titulo
-    # def getgenero(self):
-    #     return self.genero
-    # def getcalificacion(self):
-    #     return self.calificacion
-    # def getstatus(self):
-    #     return self.status
-    # def gethorasestimadas(self):
-    #     return self.horasestimadas
-    
-      
+
     def reproducir(self):
         return f"Reproduciendo {self.titulo}"
 
@@ -30,11 +17,16 @@ class Serie:
         self.status = "Completada"
 
     def calificar(self, calificacion):
-        self.__calificacion = calificacion
+        self.calificacion = calificacion
         return f"Se ha calificado {self.titulo} con {calificacion} estrellas"
 
     def ver_series(self, lista):
         for serie in lista:
             print(f"{serie.titulo} - {serie.genero} - {serie.calificacion} - {serie.status} - {serie.horasestimadas}")
-    
+
+    def detalles(self):
+        return f"{self.titulo} - {self.genero} - {self.calificacion} - {self.status} - {self.horasestimadas}"
+
 lista = []
+
+
