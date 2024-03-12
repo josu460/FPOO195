@@ -74,6 +74,6 @@ print(total)
 
 frase = str(input("escribe una frese: "))
 
-frase_invertido= frase[::-1]
+frase_invertido= frase[:-1]
 
 print(frase_invertido)

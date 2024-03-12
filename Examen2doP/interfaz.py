@@ -6,8 +6,9 @@ def click_generar():
     nombre = caja1.get().upper()
     apellidoPaterno = caja2.get().upper()
     apellidoMaterno = caja3.get().upper()
-    añoNacimiento = int(caja4.get())
+    añoNacimiento = caja4.get()
     carrera = caja5.get().upper()
+   
     
     persona = Persona(nombre, apellidoPaterno, apellidoMaterno, añoNacimiento, carrera)
     matricula = persona.generarMatricula()
@@ -58,5 +59,6 @@ text6 = Label(seccion, text="La matricula que se genero es ", font=("Arial", 10)
 text6.place(x=200, y=650)
 caja6 = ttk.Entry(seccion)
 caja6.place(x=230, y=700, width=100, height=30)
+
 
 ventana.mainloop()
