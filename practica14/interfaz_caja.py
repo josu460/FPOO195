@@ -54,8 +54,8 @@ def crear_usuario():
 
     def guardar_usuario():
         nombre = caja_nombre.get()
-        numero_cuenta = int(caja_numero_cuenta.get()) # Convertir a int
-        nueva_cuenta = Cuenta(numero_cuenta, nombre, 0, 0)  # Crear una nueva cuenta con saldo inicial 0
+        numero_cuenta = int(caja_numero_cuenta.get())
+        nueva_cuenta = Cuenta(numero_cuenta, nombre, 0, 0)  
         cuentas[numero_cuenta] = nueva_cuenta
         messagebox.showinfo("Éxito", f"Usuario {nombre} creado con éxito")
         ventana_creacion.destroy()
