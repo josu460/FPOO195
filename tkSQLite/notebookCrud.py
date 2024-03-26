@@ -13,8 +13,10 @@ def busUsuario():
     if usuarioBD == []:
         messagebox.showwarning("nada", " ID no existe en la BD ")
     else:
-        print(usuarioBD)
-
+        resultado_text.config(state="normal")
+        resultado_text.delete(1.0, END)  # Limpiar el contenido anterior
+        resultado_text.insert(END, usuarioBD)
+        resultado_text.config(state="disabled")
 
 Ventana= Tk()
 Ventana.title("CRUD de usuarios")
@@ -65,6 +67,11 @@ Entry(pestana2, textvariable=varBus).pack()
 Button(pestana2, text= "Buscar Usuario", command=busUsuario).pack()
 
 Label(pestana2, text="registrado: ", fg="blue", font=("Mono",16)).pack()
-tk.Text(pestana2, height=5 , width=52).pack()
+
+
+
+resultado_text = Text(pestana2, height=5, width=52)
+resultado_text.pack()
+
 
 Ventana.mainloop()
