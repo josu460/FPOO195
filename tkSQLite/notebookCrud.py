@@ -13,10 +13,10 @@ def busUsuario():
     if usuarioBD == []:
         messagebox.showwarning("nada", " ID no existe en la BD ")
     else:
-        resultado_text.config(state="normal")
-        resultado_text.delete(1.0, END)  # Limpiar el contenido anterior
-        resultado_text.insert(END, usuarioBD)
-        resultado_text.config(state="disabled")
+        resultado.config(state="normal")
+        resultado.delete(1.0, END) 
+        resultado.insert(END, usuarioBD)
+        resultado.config(state="disabled")
 
 Ventana= Tk()
 Ventana.title("CRUD de usuarios")
@@ -70,8 +70,8 @@ Label(pestana2, text="registrado: ", fg="blue", font=("Mono",16)).pack()
 
 
 
-resultado_text = Text(pestana2, height=5, width=52)
-resultado_text.pack()
+resultado = Text(pestana2, height=5, width=52)
+resultado.pack()
 
 
 Ventana.mainloop()
