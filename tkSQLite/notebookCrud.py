@@ -1,11 +1,19 @@
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
-from controlador import *
+import tkinter as messagebox
+from Controlador import Controlador
 
 objControlador= Controlador()
 def ejecutarInsert():
     objControlador.insertUsuario(var1.get(),var2.get(),var3.get())
+
+def busUsuario():
+    usuarioBD=objControlador.buscarUsuario(varBus.get())
+    if usuarioBD == []:
+        messagebox.showwarning("nada", " ID no existe en la BD ")
+    else:
+        print(usuarioBD)
 
 
 Ventana= Tk()
@@ -47,4 +55,16 @@ Label(pestana1, text="Contraseña: ").pack()
 Entry(pestana1, textvariable=var3).pack()
 
 Button(pestana1, text= "Guardar usuario",command=ejecutarInsert).pack()
+# Pestaña 6: Buscar usuario
+Label(pestana2, text="Buscar Usuario", fg="red", font=("Mono",18)).pack()
+
+varBus = tk.StringVar()
+Label(pestana2, text="Id: ").pack()
+Entry(pestana2, textvariable=varBus).pack()
+
+Button(pestana2, text= "Buscar Usuario", command=busUsuario).pack()
+
+Label(pestana2, text="registrado: ", fg="blue", font=("Mono",16)).pack()
+tk.Text(pestana2, height=5 , width=52).pack()
+
 Ventana.mainloop()
