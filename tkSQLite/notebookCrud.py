@@ -7,6 +7,7 @@ from Controlador import Controlador
 objControlador= Controlador()
 def ejecutarInsert():
     objControlador.insertUsuario(var1.get(),var2.get(),var3.get())
+    consultarUsuario()
 
 def busUsuario():
     usuarioBD=objControlador.buscarUsuario(varBus.get())
@@ -14,9 +15,15 @@ def busUsuario():
         messagebox.showwarning("nada", " ID no existe en la BD ")
     else:
         resultado.config(state="normal")
-        resultado.delete(1.0, END) 
+        resultado.delete(1.0, END)
         resultado.insert(END, usuarioBD)
         resultado.config(state="disabled")
+
+def consultarUsuario():
+    usuarios = objControlador.consultarUsuarios()
+    resultado_consulta.delete(*resultado_consulta.get_children()) 
+    for usuario in usuarios:
+        resultado_consulta.insert('', 'end', values=usuario)
 
 Ventana= Tk()
 Ventana.title("CRUD de usuarios")
@@ -73,5 +80,19 @@ Label(pestana2, text="registrado: ", fg="blue", font=("Mono",16)).pack()
 resultado = Text(pestana2, height=5, width=52)
 resultado.pack()
 
+#PESTAÑA 7 : Consultar Usuario
+Label(pestana3, text="Consultar Usuario", fg="red", font=("Mono",18)).pack()
+
+
+
+resultado_consulta = ttk.Treeview(pestana3, columns=('ID', 'Nombre', 'Correo', 'Contraseña'), show='headings')
+resultado_consulta.heading('ID', text='ID')
+resultado_consulta.heading('Nombre', text='Nombre')
+resultado_consulta.heading('Correo', text='Correo')
+resultado_consulta.heading('Contraseña', text='Contraseña')
+resultado_consulta.pack(fill='both', expand=True)
+
+
+consultarUsuario()
 
 Ventana.mainloop()
