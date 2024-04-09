@@ -2,7 +2,12 @@ from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 import tkinter as messagebox
-from Controlador import Controlador
+from Controlador import *
+from GeneradorPDF import *
+import os
+
+
+objPDF = GeneradorPDF()
 
 objControlador= Controlador()
 def ejecutarInsert():
@@ -24,6 +29,19 @@ def consultarUsuario():
     resultado_consulta.delete(*resultado_consulta.get_children()) 
     for usuario in usuarios:
         resultado_consulta.insert('', 'end', values=usuario)
+        
+def ejecutaPdf():
+    if varTitulo == "":
+        messagebox.showwarning("Importante", "Escribe el titulo del PDF")
+    else:
+        objPDF.add_page()
+        objPDF.chapter_body()
+        objPDF.output(varTitulo.get()+".pdf")
+        rutaPDF = "C:/Users/josuu/OneDrive/Documentos/POO/FPOO195/tkSQLite" + varTitulo.get()+".pdf"
+        messagebox.showinfo("Archivo creado", "PDF disponible en carpeta: "+rutaPDF)
+        os.system(f'start {rutaPDF}')
+        # rutaPDF = "C:/Users/josuu/OneDrive/Documentos/POO/FPOO195/tkSQLite/GeneradorPDF.py"
+        
 
 Ventana= Tk()
 Ventana.title("CRUD de usuarios")
@@ -39,7 +57,7 @@ pestana2= ttk.Frame(panel)
 pestana3= ttk.Frame(panel)
 pestana4= ttk.Frame(panel)
 pestana5= ttk.Frame(panel)
-
+pestana6= ttk.Frame(panel)
 
 #4 agregamos las pestañas
 panel.add(pestana1,text="Crear usuario")
@@ -47,6 +65,7 @@ panel.add(pestana2,text="Buscar usuario")
 panel.add(pestana3,text="Consultar usuario")
 panel.add(pestana4,text="Editar usuario")
 panel.add(pestana5,text="Eliminar usuario")
+panel.add(pestana6,text="Generar PDF")
 
 #5 Pestaña 1: Formuladrio de insert
 Label(pestana1, text="Registro de usuaios", fg="blue", font=("Modern",18)).pack()
@@ -95,4 +114,14 @@ resultado_consulta.pack(fill='both', expand=True)
 
 consultarUsuario()
 
+
+#generar PDF
+
+Label(pestana6, text="Usuario en PDF", fg="green", font=("Mono",18)).pack()
+
+varTitulo = tk.StringVar()
+Label(pestana6, text="Escribe el titulo del PDF: ").pack()
+Entry(pestana6, textvariable=varTitulo).pack()
+
+Button(pestana6, text= "Crear PDF", command=ejecutaPdf).pack()
 Ventana.mainloop()
